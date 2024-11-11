@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-backend
+  template:
+    metadata:
+      labels:
+        app: dotnet-backend
+    spec:
+      containers:
+      - name: dotnet-backend
+        image: tommygoto/nimbus:latest 
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DB_HOST
+          value: "main-dbabd6203.c8u5ndedgalt.us-east-1.rds.amazonaws.com"
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PASSWORD
+          value: "CCNoIntelao"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: "metadata"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet-backend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: dotnet-backend
+  ports:
+    - protocol: TCP
+      port: 80       # Exposing port 80
+      targetPort: 8000 # Target port inside the container

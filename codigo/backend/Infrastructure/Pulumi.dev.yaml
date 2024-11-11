@@ -1,0 +1,5 @@
+config:
+  Infrastructure:instanceType: t3.micro
+  Infrastructure:vpcNetworkCidr: 10.0.0.0/16
+  Infrastructure:keyPairName: "BastionHostKeyTest"
+  aws:region: us-east-1

@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #660099;
+  padding: 10px 20px;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none; /* Remove os marcadores dos itens da lista */
+  padding: 0; /* Remove o padding padrão */
+  margin: 0; /* Remove a margem padrão */
+}
+
+.login, .pesquisar, .carrinho {
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.carrinho {
+  display: flex;
+  align-items: center;
+}
+
+.carrinho svg {
+  margin-left: 5px; /* Espaço entre o texto e o ícone */
+}
+
+.logo-vivo-branco {
+  height: 75px;
+  width: auto;
+}

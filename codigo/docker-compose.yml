@@ -1,0 +1,9 @@
+services:                     # Define os serviços que serão gerenciados pelo Docker Compose
+  app:                        # Define o serviço "app", que será um contêiner
+    build: .                  # Informa que a imagem do contêiner deve ser construída a partir do Dockerfile localizado no diretório atual (.)
+    ports:                    # Mapeia as portas do contêiner para o host
+      - "8000:8000"           # A porta 8000 do contêiner será exposta como a porta 8000 do host
+    env_file:                 # Especifica um arquivo de ambiente (.env) que será utilizado para definir variáveis de ambiente no contêiner
+      - backend/.env  # O arquivo de ambiente está localizado em "backend/src-dotnet/.env"
+    volumes:                  # Mapeia volumes do host para o contêiner
+      - ./backend/.env:/app/backend/.env  # O arquivo de ambiente do host será mapeado para o contêiner
